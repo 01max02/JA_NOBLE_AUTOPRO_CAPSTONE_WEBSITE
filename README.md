@@ -8,7 +8,7 @@
   <p><strong>A BS Information Technology capstone project</strong><br>
   Laguna State Polytechnic University — San Pablo City Campus</p>
 
-  <p><a href="https://janobleenterpriseinc.onrender.com/"><strong>View the Live Website →</strong></a></p>
+  <p><a href="https://01max02.github.io/JA_NOBLE_AUTOPRO_CAPSTONE_WEBSITE/"><strong>View the Live Website →</strong></a></p>
 
   <p>
     <a href="https://developer.mozilla.org/docs/Web/HTML"><img src="https://img.shields.io/badge/HTML-5-E34F26?logo=html5&logoColor=white" alt="HTML 5"></a>
