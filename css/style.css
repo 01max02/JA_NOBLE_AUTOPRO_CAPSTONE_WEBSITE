@@ -168,3 +168,104 @@ footer .footer-affiliation{font-size:.9rem;color:#dbe7f8}
 .bar i{background:var(--blue2);min-width:6px}.bar i:nth-child(2){background:#fff}.bar i:nth-child(3){background:var(--red)}
 .legend{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.95rem}.legend b{font:800 1.3rem var(--head);margin-right:4px}
 @media(max-width:900px){.qgrid,.obj-grid,.stages,.eval{grid-template-columns:1fr}.obj ol.cols{columns:1}.logo{height:34px}.brand{font-size:1.2rem;gap:8px}}
+
+
+/* ===== MOBILE RESPONSIVE FIXES ===== */
+
+/* 1. Grids that overflowed on phones narrower than ~340px (minmax 300px > available width).
+      body has overflow-x:hidden, so this was silently clipping content. */
+.feat{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.team{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+
+/* 2. Mobile browsers: 100vh includes the address bar, so use small viewport height */
+.hero{min-height:100vh;min-height:100svh}
+
+/* 3. Tablet and below */
+@media(max-width:900px){
+  .links{max-height:calc(100vh - 68px);max-height:calc(100svh - 68px);overflow-y:auto}
+  .pick .thumb{height:200px}
+  .team{border:0;gap:14px;background:transparent}
+  .member{border:1px solid var(--ink);background:#fff}
+  .member:last-child{border:1px solid var(--ink)}
+  .adviser{border-color:var(--deep)}
+}
+
+/* 4. Phones */
+@media(max-width:600px){
+  body{font-size:1rem}
+  section{padding:56px 20px}
+  h2{margin-bottom:24px;padding-top:14px}
+
+  /* nav */
+  nav{padding:0 16px}
+  .brand{font-size:1.05rem;gap:8px;min-width:0}
+  .logo{height:30px}
+  .burger{width:44px;height:44px;flex-shrink:0}
+  .burger span{left:10px;right:10px}
+  .burger span:nth-child(1){top:14px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:28px}
+  .burger[aria-expanded=true] span:nth-child(1),
+  .burger[aria-expanded=true] span:nth-child(3){top:21px}
+  .links a{padding:15px 0;font-size:1rem}
+
+  /* hero */
+  .hero{padding:96px 20px 64px}
+  .hero h1{font-size:clamp(2.1rem,10vw,2.8rem);max-width:none}
+  .hero .sub{font-size:1.05rem}
+  .hero-cta,.cta{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center;width:100%;padding:14px 20px}
+
+  /* about / lists */
+  .title-card{padding:20px;border-left-width:6px}
+  .lead{font-size:1.05rem;margin-bottom:24px}
+  .qgrid li{padding:16px;gap:12px}
+  .qgrid span{font-size:2rem;min-width:26px}
+  .obj header{padding:16px 18px}
+  .obj h3{font-size:1.5rem}
+  .obj>div{padding:18px}
+  .stages li{padding:18px}
+  .ev{padding:20px}
+  .ev strong{font-size:3.4rem}
+  .sub-h{font-size:1.5rem;margin-top:40px}
+
+  /* team / features */
+  .photo{width:116px;height:116px}
+  .social-links a{width:44px;height:44px}
+  .feat div{padding:20px}
+
+  /* screenshot picker */
+  .pick{gap:18px}
+  .pick .thumb{height:180px}
+
+  /* footer */
+  footer{padding:26px 20px;font-size:.9rem}
+  .to-top{right:14px;bottom:14px}
+
+  /* gallery page */
+  .g-head{padding:100px 20px 0}
+  .tabs{flex-direction:column;margin-top:22px}
+  .tabs button{width:100%;text-align:left;border-bottom:2px solid var(--ink);margin:0 0 -2px;padding:14px 18px;font-size:1.1rem}
+  .g-body{padding:28px 20px 70px}
+  .grid{gap:20px}
+  .grid.phone{grid-template-columns:repeat(2,1fr);gap:14px}
+  .grid figcaption{font-size:.9rem}
+
+  /* lightbox: move arrows below the image so they don't cover it */
+  .lightbox{padding:60px 12px 90px}
+  .lightbox img{max-height:70vh;max-height:70svh}
+  .lb-btn{top:auto;bottom:20px;margin:0;width:52px;height:52px}
+  .lb-prev{left:calc(50% - 64px)}
+  .lb-next{left:calc(50% + 12px);right:auto}
+  .lb-x{top:12px;right:12px;bottom:auto}
+}
+
+/* 5. Very small phones */
+@media(max-width:360px){
+  .brand{font-size:.95rem}
+  .grid.phone{gap:10px}
+}
+
+/* 6. Touch devices: skip hover "lift" effects that stick after a tap */
+@media(hover:none){
+  .pick a:hover,.grid figure:hover .frame,.qgrid li:hover{transform:none;box-shadow:none}
+}
